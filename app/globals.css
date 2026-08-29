@@ -1,0 +1,35 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background); --color-foreground: var(--foreground); --font-sans: var(--font-geist-sans); --font-mono: var(--font-geist-mono); --font-heading: var(--font-sans);
+  --color-ring: var(--ring); --color-input: var(--input); --color-border: var(--border); --color-destructive: var(--destructive); --color-accent-foreground: var(--accent-foreground); --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground); --color-muted: var(--muted); --color-secondary-foreground: var(--secondary-foreground); --color-secondary: var(--secondary); --color-primary-foreground: var(--primary-foreground); --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground); --color-popover: var(--popover); --color-card-foreground: var(--card-foreground); --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6); --radius-md: calc(var(--radius) * 0.8); --radius-lg: var(--radius); --radius-xl: calc(var(--radius) * 1.4); --radius-2xl: calc(var(--radius) * 1.8);
+}
+
+:root {
+  --background: oklch(0.972 0.003 85); --foreground: oklch(0.19 0.004 70); --card: oklch(0.992 0.002 85); --card-foreground: var(--foreground); --popover: oklch(0.995 0.002 85); --popover-foreground: var(--foreground);
+  --primary: oklch(0.235 0.004 70); --primary-foreground: oklch(0.985 0.002 85); --secondary: oklch(0.93 0.004 80); --secondary-foreground: var(--foreground); --muted: oklch(0.936 0.004 80); --muted-foreground: oklch(0.52 0.006 70);
+  --accent: oklch(0.92 0.006 80); --accent-foreground: var(--foreground); --destructive: oklch(0.56 0.19 27); --border: oklch(0.84 0.006 80); --input: oklch(0.82 0.006 80); --ring: oklch(0.42 0.006 70); --radius: 0.55rem;
+}
+
+@layer base { * { @apply border-border outline-ring/50; } html { @apply font-sans; } body { @apply bg-background text-foreground; } button, a, input, select, textarea { touch-action: manipulation; } }
+
+.wireframe-cover { display: grid; place-items: center; padding: 12%; background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--foreground) 14%, transparent) 1px, transparent 0); background-size: 14px 14px; }
+.wireframe-window { position: relative; width: 100%; height: 100%; overflow: hidden; border: 1px solid color-mix(in oklab, var(--foreground) 32%, transparent); border-radius: 6px; background: color-mix(in oklab, var(--background) 92%, transparent); }
+.wireframe-sidebar { position: absolute; inset: 0 auto 0 0; width: 22%; border-right: 1px solid var(--border); background: color-mix(in oklab, var(--muted) 76%, transparent); }
+.wireframe-line { position: absolute; left: 29%; height: 5%; border-radius: 999px; background: color-mix(in oklab, var(--foreground) 24%, transparent); }
+.wireframe-line-a { top: 20%; width: 42%; } .wireframe-line-b { top: 31%; width: 58%; }
+.wireframe-block { position: absolute; left: 29%; right: 10%; bottom: 14%; height: 40%; border-radius: 4px; background: color-mix(in oklab, var(--foreground) 12%, transparent); }
+.wireframe-caption { position: absolute; right: 4%; bottom: 3%; max-width: 68%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; color: color-mix(in oklab, var(--foreground) 55%, transparent); }
+.tone-a { background-color: oklch(0.84 0.012 70); }
+.tone-b { background-color: oklch(0.81 0.009 250); }
+.tone-c { background-color: oklch(0.86 0.015 110); }
+.tone-d { background-color: oklch(0.88 0.014 25); }
+.tone-e { background-color: oklch(0.82 0.01 320); }
+.tone-f { background-color: oklch(0.87 0.012 200); }
